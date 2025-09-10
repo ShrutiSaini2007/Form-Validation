@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>javascript</title>
+        <style>
+            input{
+                width: 450px;
+                height: 40px;
+                border: 3px solid blueviolet;
+                border-radius:7px;
+                font-size: 15px;
+            }
+            #button{
+                background-color:orangered;
+                color: white;
+                font-size: 23px;
+                border-radius:0px 50px ;
+            }
+            #button:hover{
+                background-color: blue;
+            }
+        </style>
+    </head>
+
+<body>
+    <form action="submit.html" autocomplete="off" onsubmit="return validation()">
+        <table align="center" >
+            <tr><td><input type="text" id="users" placeholder="USERNAME">
+           <br> </td></tr>
+            <tr><td><input type="password" id="passwords" placeholder="PASSWORD">
+            <br>  </td></tr>
+            <tr><td><input type="text" id="confirms" placeholder="CONFIRM PASSWORD">
+            <br> </td></tr>
+            <tr><td><input type="email" id="emails" placeholder="EMAIL">
+            <br> </td></tr>
+            <tr><td><input type="number" id="mobiles" placeholder="MOBILE">
+            <br> </td></tr>
+            <br>
+            <tr><td><input id="button" type="submit" value="Submit your data"></td></tr>
+    </form>
+    <script type="text/javascript">
+        function validation() {
+            var user = document.getElementById('users').value;
+            var password= document.getElementById('passwords').value;
+            var confirm= document.getElementById('confirms').value;
+            var email = document.getElementById('emails').value;
+            var mobile = document.getElementById('mobiles').value;
+        if(user==""||password=="" ||confirm=="" ||email=="" ||mobile==""){
+      alert("all field must be filled");
+      return false;
+      }     
+      else if(password!=confirm){
+        alert("confirm password should match the password")
+       return false;
+      }
+      else if(mobile.length<10||mobile.length>10){
+        alert("Enter only 10 digits! Please enter valid number")
+        return false;
+      }
+       else if(isNan(mobile)){
+        alert("Only Numbers are allowed!!!")
+        return false;
+      }
+      else{
+        true;
+      }
+        }
+
+    </script>
+</body>
+</html>
